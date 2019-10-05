@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
+//using Features.Linq;
 
 namespace Features
 {
@@ -19,6 +21,8 @@ namespace Features
             {
                 new Employee { Id = 3, Name = "Alex" }
             };
+
+            Console.WriteLine(sales.Count());
 
             IEnumerator<Employee> enumerator = sales.GetEnumerator();
 
