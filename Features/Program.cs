@@ -22,10 +22,8 @@ namespace Features
                 new Employee { Id = 3, Name = "Alex" }
             };
 
-            foreach (var employee in developers.Where(delegate(Employee employee)
-            {
-                return employee.Name.StartsWith("S");
-            }))
+            // => is read as 'goes to'
+            foreach (var employee in developers.Where(e => e.Name.StartsWith("S")))
             {
                 Console.WriteLine(employee.Name);
             }
