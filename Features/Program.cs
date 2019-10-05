@@ -22,15 +22,13 @@ namespace Features
                 new Employee { Id = 3, Name = "Alex" }
             };
 
-            foreach (var employee in developers.Where(NameStartsWithS))
+            foreach (var employee in developers.Where(delegate(Employee employee)
+            {
+                return employee.Name.StartsWith("S");
+            }))
             {
                 Console.WriteLine(employee.Name);
             }
-        }
-
-        private static bool NameStartsWithS(Employee employee)
-        {
-            return employee.Name.StartsWith("S");
         }
     }
 }
