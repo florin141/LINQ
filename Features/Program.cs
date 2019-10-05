@@ -33,10 +33,17 @@ namespace Features
                 new Employee { Id = 3, Name = "Alex" }
             };
 
-            // => is read as 'goes to'
-            foreach (var employee in developers
+            var query1 = developers
                 .Where(e => e.Name.Length == 5)
-                .OrderBy(e => e.Name))
+                .OrderBy(e => e.Name);
+
+            var query2 = from developer in developers
+                where developer.Name.Length == 5
+                orderby developer.Name
+                select developer;
+
+            // => is read as 'goes to'
+            foreach (var employee in query2)
             {
                 Console.WriteLine(employee.Name);
             }
