@@ -22,14 +22,15 @@ namespace Features
                 new Employee { Id = 3, Name = "Alex" }
             };
 
-            Console.WriteLine(sales.Count());
-
-            IEnumerator<Employee> enumerator = sales.GetEnumerator();
-
-            while (enumerator.MoveNext())
+            foreach (var employee in developers.Where(NameStartsWithS))
             {
-                Console.WriteLine(enumerator.Current.Name);
+                Console.WriteLine(employee.Name);
             }
+        }
+
+        private static bool NameStartsWithS(Employee employee)
+        {
+            return employee.Name.StartsWith("S");
         }
     }
 }
