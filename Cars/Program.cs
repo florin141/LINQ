@@ -23,14 +23,21 @@ namespace Cars
                     car.Combined
                 };
 
-            var result = cars.Any(c => c.Manufacturer == "Ford");
+            var result = cars
+                .SelectMany(c => c.Name)
+                .OrderBy(c => c);
 
             Console.WriteLine(result);
 
-            foreach (var car in query.Take(10))
+            foreach (var ch in result)
             {
-                Console.WriteLine($"{car.Manufacturer} {car.Name} : {car.Combined}");
+                Console.WriteLine(ch);
             }
+
+            //foreach (var car in query.Take(10))
+            //{
+            //    Console.WriteLine($"{car.Manufacturer} {car.Name} : {car.Combined}");
+            //}
         }
 
         private static List<Car> ProcessFile(string path)
