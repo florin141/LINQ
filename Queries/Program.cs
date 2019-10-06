@@ -19,7 +19,7 @@ namespace Queries
             };
 
             var query = movies
-                .Filter(m => m.Year > 2000);
+                .Where(m => m.Year > 2000);
 
             foreach (var movie in query)
             {
